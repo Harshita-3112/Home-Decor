@@ -1,19 +1,26 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import useConfigStore from '../../store/configStore';
+import { useNavigation } from '@react-navigation/native';
 
 const Cart = () => {
+  const navigation = useNavigation()
+
+
+
   const cart = useConfigStore(state => state.cart);
   console.log('cart', cart);
 
-  if (cart.length == 0) {
+  if (!cart || cart.length === 0) {
     return (
-      <View style={{flex: 1, paddingHorizontal: 20, backgroundColor: '#FFF'}}>
+      <View style={{ flex: 1, paddingHorizontal: 20, backgroundColor: '#FFF' }}>
         <View
-          style={{marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
-          <AntDesign name={'arrowleft'} size={22} color={'#000'} />
+          style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <AntDesign name={'arrowleft'} size={22} color={'#000'} />
+          </TouchableOpacity>
           <Text
             style={{
               color: '#000',
@@ -41,7 +48,7 @@ const Cart = () => {
             }}>
             Cart is empty
           </Text>
-          <Text style={{color: '#a4a4a4'}}>
+          <Text style={{ color: '#a4a4a4' }}>
             You don't have any products in the cart yet.
           </Text>
         </View>
@@ -50,9 +57,11 @@ const Cart = () => {
   }
 
   return (
-    <View style={{flex: 1, paddingHorizontal: 20, backgroundColor: '#FFF'}}>
-      <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
-        <AntDesign name={'arrowleft'} size={22} color={'#000'} />
+    <View style={{ flex: 1, paddingHorizontal: 20, backgroundColor: '#FFF' }}>
+      <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center' }}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <AntDesign name={'arrowleft'} size={22} color={'#000'} />
+        </TouchableOpacity>
         <Text
           style={{
             color: '#000',
@@ -83,7 +92,7 @@ const Cart = () => {
             justifyContent: 'center',
           }}>
           <Image
-            source={{uri: cart.images[0]}}
+            source={{ uri: cart.images[0] }}
             style={{
               height: 30,
               width: 35,
@@ -93,13 +102,13 @@ const Cart = () => {
           />
         </View>
 
-        <View style={{left: 40}}>
-          <Text style={{color: '#000', fontFamily: 'Poppins-Regular'}}>
+        <View style={{ left: 40 }}>
+          <Text style={{ color: '#000', fontFamily: 'Poppins-Regular' }}>
             {cart.title}
           </Text>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{color: '#000', fontSize: 12}}>${cart.price}</Text>
-            <Text style={{left: 16, fontSize: 12}}>$48.00</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ color: '#000', fontSize: 12 }}>${cart.price}</Text>
+            <Text style={{ left: 16, fontSize: 12 }}>$48.00</Text>
           </View>
         </View>
       </View>

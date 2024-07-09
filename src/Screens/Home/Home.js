@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -17,19 +17,19 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FilterButton from '../../components/FilterButton/FilterButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {FlatList, ScrollView} from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import auth from '@react-native-firebase/auth';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import useConfigStore from '../../store/configStore';
 
-const Home1 = () => {
+const Home = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState(null);
   const cart = useConfigStore(state => state.cart);
   const setCart = useConfigStore(state => state.setCart);
 
-  const renderProducts = ({item, index}) => {
+  const renderProducts = ({ item, index }) => {
     return (
       <FilterButton item={item} image={item.thumbnail} title={item.title} />
     );
@@ -67,18 +67,18 @@ const Home1 = () => {
     getProducts();
   }, []);
   if (loading) {
-    return <ActivityIndicator size={30} style={{marginTop: '70%'}} />;
+    return <ActivityIndicator size={30} style={{ marginTop: '70%' }} />;
   }
 
   return (
     <ScrollView
-      style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20}}>
+      style={{ flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20 }}>
       {/* <StatusBar barStyle={'light-content'} /> */}
       {/* Header View */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleLogOut}>
-          <Text style={styles.text}>MONO</Text>
-        </TouchableOpacity>
+
+        <Text style={styles.text}>MONO</Text>
+
         <View style={styles.subView}>
           <View style={styles.wishlist}>
             <Octicons name={'heart'} size={22} color={'#FF0000'} />
@@ -99,19 +99,19 @@ const Home1 = () => {
       </View>
 
       <View style={styles.products}>
-        <View style={{flex: 2, padding: 10, justifyContent: 'space-between'}}>
+        <View style={{ flex: 2, padding: 10, justifyContent: 'space-between' }}>
           <Text style={styles.discount}>30% off all new products </Text>
 
           <View
             style={{
               flexDirection: 'row',
             }}>
-            <Text style={{fontSize: 10, color: '#000'}}>Watch</Text>
+            <Text style={{ fontSize: 10, color: '#000' }}>Watch</Text>
             <AntDesign
               name={'arrowright'}
               size={12}
               color={'#000'}
-              style={{left: 2}}
+              style={{ left: 2 }}
             />
           </View>
         </View>
@@ -131,7 +131,7 @@ const Home1 = () => {
           New arrivals
         </Text>
         <View style={styles.viewAll}>
-          <Text style={{fontSize: 12, fontWeight: '500', color: '#000'}}>
+          <Text style={{ fontSize: 12, fontWeight: '500', color: '#000' }}>
             View all
           </Text>
           <MaterialIcons
@@ -170,45 +170,45 @@ const Home1 = () => {
         </ScrollView>
       </View>
 
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <Text style={styles.catagories}>Categories</Text>
       </View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={styles.star}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <TouchableOpacity style={styles.star}>
           <Fontisto name={'star'} size={18} color={'#A4A4A4'} />
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.star}>
+        <TouchableOpacity style={styles.star}>
           <MaterialCommunityIcons
             name={'table-chair'}
             size={18}
             color={'#A4A4A4'}
           />
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.star}>
+        <TouchableOpacity style={styles.star}>
           <MaterialCommunityIcons
             name={'chair-rolling'}
             size={18}
             color={'#A4A4A4'}
           />
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.star}>
+        <TouchableOpacity style={styles.star}>
           <FontAwesome6 name={'couch'} size={18} color={'#A4A4A4'} />
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.star}>
+        <TouchableOpacity style={styles.star}>
           <Ionicons name={'bed'} size={18} color={'#A4A4A4'} />
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.star}>
+        <TouchableOpacity style={styles.star}>
           <MaterialCommunityIcons
             name={'chair-school'}
             size={18}
             color={'#A4A4A4'}
           />
-        </View>
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -224,7 +224,7 @@ const Home1 = () => {
   );
 };
 
-export default Home1;
+export default Home;
 
 const styles = StyleSheet.create({
   header: {

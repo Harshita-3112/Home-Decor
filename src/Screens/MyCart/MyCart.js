@@ -1,12 +1,17 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 const MyCart = () => {
+
+  const navigation = useNavigation()
   return (
-    <View style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20}}>
-      <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center'}}>
-        <AntDesign name={'arrowleft'} size={22} color={'#000'} />
+    <View style={{ flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20 }}>
+      <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center' }}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <AntDesign name={'arrowleft'} size={22} color={'#000'} />
+        </TouchableOpacity>
         <Text
           style={{
             color: '#000',
@@ -47,13 +52,13 @@ const MyCart = () => {
           />
         </View>
 
-        <View style={{left: 40}}>
-          <Text style={{color: '#000', fontFamily: 'Poppins-Regular'}}>
+        <View style={{ left: 40 }}>
+          <Text style={{ color: '#000', fontFamily: 'Poppins-Regular' }}>
             White Classics
           </Text>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{color: '#000', fontSize: 12}}>$33.00</Text>
-            <Text style={{left: 16, fontSize: 12}}>$48.00</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ color: '#000', fontSize: 12 }}>$33.00</Text>
+            <Text style={{ left: 16, fontSize: 12 }}>$48.00</Text>
           </View>
         </View>
       </View>

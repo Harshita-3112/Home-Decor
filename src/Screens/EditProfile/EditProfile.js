@@ -1,13 +1,13 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FilterEditProfile from '../../components/FilterEditProfile/FilterEditProfile';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 const EditProfile = props => {
   const navigation = useNavigation();
 
@@ -27,14 +27,14 @@ const EditProfile = props => {
       });
 
       navigation.goBack();
-    } catch (error) {}
+    } catch (error) { }
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20}}>
-      <View style={{marginTop: 10}}>
+    <View style={{ flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20 }}>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginTop: 10 }}>
         <AntDesign name={'arrowleft'} size={22} color={'#000'} />
-      </View>
+      </TouchableOpacity>
       <Text
         style={{
           color: '#000',
@@ -51,7 +51,7 @@ const EditProfile = props => {
             name={'user'}
             size={24}
             color={'#A4A4A4'}
-            style={{alignSelf: 'center'}}
+            style={{ alignSelf: 'center' }}
           />
         }
         title={'name'}
@@ -93,7 +93,7 @@ const EditProfile = props => {
           justifyContent: 'center',
           marginTop: 200,
         }}>
-        <Text style={{color: '#000', fontFamily: 'Poppins-Medium'}}>Save</Text>
+        <Text style={{ color: '#000', fontFamily: 'Poppins-Medium' }}>Save</Text>
       </TouchableOpacity>
     </View>
   );

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -15,11 +15,14 @@ import FilterProfile from '../../components/FilterProfile/FilterProfile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {ScrollView} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 const Profile = () => {
+
+
+
   const currentUser = auth().currentUser;
   console.log('current', currentUser);
 
@@ -32,7 +35,7 @@ const Profile = () => {
   // console.log('user here', userData);
 
   const handleEditProfile = () => {
-    navigation.navigate('EditProfile', {user: user});
+    navigation.navigate('EditProfile', { user: user });
   };
 
   const handleLogout = async () => {
@@ -48,7 +51,7 @@ const Profile = () => {
       setUser(userData.data());
       setLoading(false);
       console.log('user here', userData);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   useEffect(() => {
@@ -59,19 +62,19 @@ const Profile = () => {
     return (
       <ActivityIndicator
         size={30}
-        style={{alignSelf: 'center', marginTop: '40%'}}
+        style={{ alignSelf: 'center', marginTop: '40%' }}
       />
     );
   }
 
   return (
     <ScrollView
-      style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20}}>
-      <View style={{marginTop: 10}}>
+      style={{ flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20 }}>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginTop: 10 }}>
         <AntDesign name={'arrowleft'} size={22} color={'#000'} />
-      </View>
-      <View style={{alignItems: 'center', marginTop: 50}}>
-        <Image source={{uri: currentUser.photoURL}} style={styles.image} />
+      </TouchableOpacity>
+      <View style={{ alignItems: 'center', marginTop: 50 }}>
+        <Image source={{ uri: currentUser.photoURL }} style={styles.image} />
         <Text
           style={{
             fontSize: 16,
@@ -83,7 +86,7 @@ const Profile = () => {
         </Text>
       </View>
 
-      <View style={{flexDirection: 'row', marginTop: 30}}>
+      <View style={{ flexDirection: 'row', marginTop: 30 }}>
         <View>
           <MaterialCommunityIcons
             name={'ticket-confirmation-outline'}
@@ -92,10 +95,10 @@ const Profile = () => {
           />
         </View>
         <View>
-          <Text style={{color: '#000', fontFamily: 'Poppins-Medium', left: 16}}>
+          <Text style={{ color: '#000', fontFamily: 'Poppins-Medium', left: 16 }}>
             Reffer friend give coupon code
           </Text>
-          <Text style={{color: '#000', fontFamily: 'Poppins-Medium', left: 16}}>
+          <Text style={{ color: '#000', fontFamily: 'Poppins-Medium', left: 16 }}>
             Learn More
           </Text>
         </View>
@@ -212,7 +215,7 @@ const Profile = () => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text style={{color: '#000'}}>Log out</Text>
+        <Text style={{ color: '#000' }}>Log out</Text>
       </TouchableOpacity>
     </ScrollView>
   );

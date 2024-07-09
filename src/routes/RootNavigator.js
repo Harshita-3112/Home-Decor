@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Splash from '../Screens/Splash/Splash';
 import Onboarding from '../Screens/Onboarding/Onboarding';
 import Onboarding2 from '../Screens/Onboarding2/Onboarding2';
@@ -10,7 +10,7 @@ import SignIn from '../Screens/SignIn/SignIn';
 import PasswordRecovery from '../Screens/PasswordRecovery/PasswordRecovery';
 import Welcome from '../Screens/Welcome/Welcome';
 import SignUp from '../Screens/SignUp/SignUp';
-import Home1 from '../Screens/Home1/Home1';
+import Home1 from '../Screens/Home/Home';
 import BottomTabNavigator from '../Screens/BottomTabNavigator/BottomTabNavigator';
 import auth from '@react-native-firebase/auth';
 import ChairDetail from '../Screens/ChairDetail/ChairDetail';
@@ -59,7 +59,7 @@ const RootNavigator = () => {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user ? (
           <>
             <Stack.Screen

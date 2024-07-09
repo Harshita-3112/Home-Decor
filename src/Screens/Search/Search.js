@@ -11,9 +11,9 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
-const Home2 = () => {
+const Search = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20}}>
+    <View style={{ flex: 1, backgroundColor: '#FFF', paddingHorizontal: 20 }}>
       <View style={styles.header}>
         <Text style={styles.text}>MONO</Text>
 
@@ -37,19 +37,19 @@ const Home2 = () => {
       </View>
 
       <View style={styles.products}>
-        <View style={{flex: 2, padding: 10, justifyContent: 'space-between'}}>
+        <View style={{ flex: 2, padding: 10, justifyContent: 'space-between' }}>
           <Text style={styles.discount}>30% off all new products </Text>
 
           <View
             style={{
               flexDirection: 'row',
             }}>
-            <Text style={{fontSize: 10, color: '#000'}}>Watch</Text>
+            <Text style={{ fontSize: 10, color: '#000' }}>Watch</Text>
             <AntDesign
               name={'arrowright'}
               size={12}
               color={'#000'}
-              style={{left: 2}}
+              style={{ left: 2 }}
             />
           </View>
         </View>
@@ -79,13 +79,13 @@ const Home2 = () => {
 
           alignSelf: 'flex-start',
         }}>
-        <Text style={{padding: 5, color: '#FFF'}}>Bedroom</Text>
+        <Text style={{ padding: 5, color: '#FFF' }}>Bedroom</Text>
       </ImageBackground>
     </View>
   );
 };
 
-export default Home2;
+export default Search;
 
 const styles = StyleSheet.create({
   header: {
