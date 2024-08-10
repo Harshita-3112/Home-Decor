@@ -93,10 +93,10 @@ const Home = () => {
         </View>
       </View>
 
-      <View style={styles.searchBar}>
+      <TouchableOpacity style={styles.searchBar}>
         <Text>Search</Text>
         <EvilIcons name={'search'} size={22} color={'#A4A4A4'} />
-      </View>
+      </TouchableOpacity>
 
       <View style={styles.products}>
         <View style={{ flex: 2, padding: 10, justifyContent: 'space-between' }}>
@@ -123,21 +123,20 @@ const Home = () => {
       <View style={styles.arrivals}>
         <Text
           style={{
-            fontSize: 24,
-            // fontWeight: '500',
+            fontSize: 20,
             color: '#000',
-            fontFamily: 'Poppins-Bold',
+            fontFamily: 'Poppins-Medium',
           }}>
           New arrivals
         </Text>
-        <View style={styles.viewAll}>
-          <Text style={{ fontSize: 12, fontWeight: '500', color: '#000' }}>
+        <View style={styles.viewAllButton}>
+          <Text style={{ fontSize: 10, fontWeight: '500', color: '#a4a4a4' }}>
             View all
           </Text>
           <MaterialIcons
             name={'keyboard-arrow-right'}
-            size={20}
-            color={'#000'}
+            size={16}
+            color={'#a4a4a4'}
           />
         </View>
       </View>
@@ -147,6 +146,7 @@ const Home = () => {
           width: '100%',
           backgroundColor: 'yellow',
           flexDirection: 'row',
+          marginTop: 18
         }}>
         <ScrollView
           horizontal
@@ -170,10 +170,10 @@ const Home = () => {
         </ScrollView>
       </View>
 
-      <View style={{ flex: 1 }}>
-        <Text style={styles.catagories}>Categories</Text>
-      </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+
+      <Text style={styles.catagories}>Categories</Text>
+
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 2 }}>
         <TouchableOpacity style={styles.star}>
           <Fontisto name={'star'} size={18} color={'#A4A4A4'} />
         </TouchableOpacity>
@@ -295,22 +295,24 @@ const styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'space-between',
   },
-  viewAll: {
+  viewAllButton: {
     flexDirection: 'row',
+    alignSelf: 'center'
   },
   catagories: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '500',
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Poppins-Medium',
     color: '#000',
     marginTop: 20,
+
   },
   star: {
     height: 40,
     width: 40,
     borderRadius: 8,
     backgroundColor: '#F9FAFB',
-    marginTop: 10,
+    // marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },

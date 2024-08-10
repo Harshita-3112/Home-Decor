@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   divider: {
     width: 'auto',
     borderColor: '#A4A4A4',
-    borderWidth: 1,
+    borderWidth: 0.3,
     marginHorizontal: 6,
   },
   chair2: {
